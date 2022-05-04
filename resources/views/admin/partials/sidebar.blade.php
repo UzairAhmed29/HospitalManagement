@@ -121,6 +121,19 @@
                     </ul>
                 </li>
 
+                <li class="nav-item {{ (request()->is('dashboard/user')) ? 'menu-is-opening menu-open' : '' }}">
+                    <a href="#" class="nav-link"><i class="nav-icon fas fa-receipt"></i>
+                        <p> Orders</p>
+                    </a>
+                    <ul class="nav nav-treeview" style="{{ request()->is('dashboard/order') || request()->is('dashboard/order/create') ? 'display: block' : 'display: none' }}">
+                        <li class="nav-item">
+                            <a href="{{ route('order.index') }}" class="nav-link">
+                                <i class="fas fa-angle-right"></i>&nbsp;<p>{{ (auth()->user()->role == 'customer') ? "My Orders" : "All Orders" }}</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
                 @if(auth()->user() != null && auth()->user()->role == 'admin')
                 <li class="nav-item {{ (request()->is('dashboard/user')) ? 'menu-is-opening menu-open' : '' }}">
                     <a href="#" class="nav-link"><i class="nav-icon fas fa-users"></i>

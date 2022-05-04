@@ -70,8 +70,11 @@
     <a href="{{ route('index') }}"><img width="200" src="{{ asset('/images/logo.png') }}"></a>
     <div class="header-right">
       <a class="active" href="/">Home</a>
-      <a href="{{ route('hospitals') }}">Doctors</a>
-      <a href="#contact">Doctors</a>
-      <a href="#about">Vaccines</a>
+      <a href="{{ route('doctors') }}">Doctors</a>
+      <a href="{{ route('hospitals') }}">Hospitals</a>
+      <a href="{{ route('vaccines') }}">Vaccines</a>
+      @if(!Auth::guest())
+        <a href="{{ route('dashboard') }}">Account</a>
+      @endif
     </div>
 </div>
