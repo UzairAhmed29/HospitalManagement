@@ -44,6 +44,11 @@
                                     <span class="text-danger"><b>{{ $errors->first('phone') }}</b></span>
                                 </div>
                                 <div class="form-group">
+                                    <label><strong>No. of Beds <span class="text-danger">*</span></strong></label>
+                                    <input type="text" class="form-control" name="no_of_beds" value="{{ isset($hospital->no_of_beds) ? $hospital->no_of_beds : old('no_of_beds') }}" placeholder="No. of Beds">
+                                    <span class="text-danger"><b>{{ $errors->first('no_of_beds') }}</b></span>
+                                </div>
+                                <div class="form-group">
                                     <label><strong>Total Corona Deaths <span class="text-danger">*</span></strong></label>
                                     <input type="text" class="form-control" name="deaths" value="{{ isset($hospital->deaths) ? $hospital->deaths : old('address') }}" placeholder="Total Corona Deaths">
                                     <span class="text-danger"><b>{{ $errors->first('deaths') }}</b></span>
@@ -97,7 +102,11 @@
                                     <input type="text" class="form-control" name="total_doctors" value="{{ isset($hospital->total_doctors) ? $hospital->total_doctors : old('address') }}" placeholder="Total No. Of Doctors">
                                     <span class="text-danger"><b>{{ $errors->first('total_doctors') }}</b></span>
                                 </div>
-
+                                <div class="form-group">
+                                    <label><strong>No. of Ventilators <span class="text-danger">*</span></strong></label>
+                                    <input type="text" class="form-control" name="no_of_vents" value="{{ isset($hospital->no_of_vents) ? $hospital->no_of_vents : old('no_of_vents') }}" placeholder="No. of Ventilators">
+                                    <span class="text-danger"><b>{{ $errors->first('no_of_vents') }}</b></span>
+                                </div>
                                 <div class="form-group">
                                     <label><strong>Active Corona Cases <span class="text-danger">*</span></strong></label>
                                     <input type="text" class="form-control" name="active_cases" value="{{ isset($hospital->active_cases) ? $hospital->active_cases : old('address') }}" placeholder="Active Corona Cases">

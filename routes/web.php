@@ -18,6 +18,11 @@ Route::group(array('namespace' => '\App\Http\Controllers'), function() {
     Route::get('/', 'FrontEndController@index')->name('index');
     Route::get('/hospitals', 'FrontEndController@hospitals')->name('hospitals');
     Route::get('/hospital/{slug}/', 'FrontEndController@hospitalsDetail')->name('hospital_details');
+
+    Route::get('/doctor/{slug}/', 'FrontEndController@DoctorsDetail')->name('doctor_details');
+
+    Route::get('/vendor-register', 'FrontEndController@vendorRegisterView')->name('vendor_register_view');
+    Route::post('/vendor-register', 'FrontEndController@vendorRegister')->name('vendor_register');
 });
 
 

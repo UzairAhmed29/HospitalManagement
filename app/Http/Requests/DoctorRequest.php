@@ -27,6 +27,10 @@ class DoctorRequest extends FormRequest
             'hospital_id'   => 'required',
             'name'          => 'required',
             'timming'       => 'required',
+            'expirience'    => 'required',
+            'education'     => 'required',
+            'city'          => 'required',
+            'working_days'  => 'required',
             'fee'           => 'required',
             'services'      => 'required',
             'specialist'    => 'required'

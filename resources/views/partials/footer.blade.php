@@ -93,5 +93,6 @@
     document.getElementById("myNav").style.width = "0%";
     }
  </script>
+ @yield('scripts')
 </body>
 </html>
