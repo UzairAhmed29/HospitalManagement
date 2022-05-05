@@ -18,7 +18,11 @@ class OrdersController extends Controller
     public function index()
     {
         $title = "All Orders";
-        $orders = Order::simplePaginate(20);
+        if( auth()->user()->role == 'customer' ) {
+            $orders = Order::where('user_id', auth()->user()->id)->simplePaginate(20);
+        } else {
+            $orders = Order::simplePaginate(20);
+        }
         return view('admin.orders.view', compact('title', 'orders'));
     }
 
@@ -49,9 +53,10 @@ class OrdersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Order $order)
     {
-        //
+        $order = Order::with('vaccine')->where('id', $order->id)->first();
+        return view('admin.orders.detail', compact('order'));
     }
 
     /**
@@ -83,8 +88,19 @@ class OrdersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Order $order)
     {
-        //
+        $order->delete();
+
+        Session::flash('success', 'Order deleted successfully!');
+        return redirect()->back();
+
+    }
+
+    public function orderStatusUpdate(Order $order, Request $request) {
+        $order->update([
+            'order_status' => $request->order_status
+        ]);
+        return redirect()->back();
     }
 }

@@ -13,5 +13,8 @@ class Order extends Model
         'id', 'created_at', 'updated_at',
     ];
 
+    public function vaccine() {
+	    return $this->belongsTo(Vaccine::class, 'vaccine_id');
+    }
 
 }

@@ -66,4 +66,8 @@ class FrontEndController extends Controller {
         $vaccine = Vaccine::with('hospital')->where('slug', $slug)->first();
         return view('vaccines.detail', compact('vaccine'));
     }
+
+    public function doctorsView() {
+        return view('doctors.doctors');
+    }
 }

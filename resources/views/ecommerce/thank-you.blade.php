@@ -61,7 +61,7 @@ section.thank-you-content {
                         <h1><img src="{{ asset('/images/thankyou.png') }}" alt="Thanks You" /></h1>
                           <p>for choosing us... </p>
                           <p>Your Order is in Processing Order ID: #{{ $key }}</p>
-                          <p><a style="text-decoration: underline!important;" href="{{ route('dashboard') }}">View Order</a></p>
+                          <p><a style="text-decoration: underline!important;" href="{{ route('order.show', $key) }}">View Order</a></p>
                           <a class="bth-btn" href="/">Back to home</a>
                           <div class="clr"></div>
                       </div>

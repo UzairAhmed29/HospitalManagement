@@ -59,9 +59,10 @@ Route::group(array('namespace' => '\App\Http\Controllers\Admin', 'prefix' => '/d
         Route::resource('/vaccine', 'VaccinesController');
 
         Route::resource('/order', 'OrdersController');
+        Route::put('/order/status/{order}', 'OrdersController@orderStatusUpdate')->name('update_order_status');
 
     });
-
+    Route::resource('/order', 'OrdersController');
     // customer role route outside middleware group
     Route::get('/profile', 'UserController@vendorProfile')->name('vendor_profile_view');
 });

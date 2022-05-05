@@ -52,8 +52,9 @@
                                                     <td rowspan="1" acolspan="1">{{ $order->nic }}</td>
                                                     <td rowspan="1" acolspan="1">{{ $order->date }}</td>
                                                     <td rowspan="1" acolspan="1">{{ $order->order_status }}</td>
+                                                    <td>
                                                         <form action="{{ route('order.destroy', $order->id) }}" method="POST" name="OrderDelete">
-                                                            <a href="{{ route('user.show', $order->id) }}" class="btn btn-sm btn-default" title="Edit"><i class="fas fa-file-alt"></i></a>
+                                                            <a href="{{ route('order.show', $order->id) }}" class="btn btn-sm btn-default" title="Edit"><i class="fas fa-file-alt"></i></a>
                                                             @csrf
                                                             @method('DELETE')
                 											@if(auth()->user()->role != "admin")
