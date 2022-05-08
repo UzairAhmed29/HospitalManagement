@@ -16,4 +16,8 @@ class Vaccine extends Model
     public function hospital() {
 	    return $this->belongsTo(Hospital::class, 'hospital_id');
     }
+
+    public function orders() {
+	    return $this->hasMany(Order::class);
+    }
 }

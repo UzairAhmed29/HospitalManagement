@@ -34,8 +34,26 @@
                                     <span class="text-danger"><b>{{ $errors->first('name') }}</b></span>
                                 </div>
                                 <div class="form-group">
+                                    <label><strong>Expirience <span class="text-danger">*</span></strong></label>
+                                    <input type="text" class="form-control" name="expirience" value="{{ isset($doctor->expirience) ? $doctor->expirience : old('expirience') }}" placeholder="Expirience">
+                                    <span class="text-danger"><b>{{ $errors->first('expirience') }}</b></span>
+                                </div>
+                                <div class="form-group">
+                                    <label><strong>City <span class="text-danger">*</span></strong></label>
+                                    <select class="form-control city" name="city">
+                                        @foreach( $cities as $city )
+                                            <option value="{{ $city }}"
+                                            @if( isset($doctor) && $doctor->city === $city )
+                                                selected
+                                            @endif
+                                            >{{ $city }}</option>
+                                        @endforeach
+                                    </select>
+                                    <span class="text-danger"><b>{{ $errors->first('city') }}</b></span>
+                                </div>
+                                <div class="form-group">
                                     <label><strong>Timmings <span class="text-danger">*</span></strong></label>
-                                    <input type="text" class="form-control daterange" name="timming" value="{{ isset($doctor->name) ? $doctor->name : old('name') }}" placeholder="Select Timming"/>
+                                    <input type="text" class="form-control daterange" name="timming" value="{{ isset($doctor->timming) ? $doctor->timming : old('timming') }}" placeholder="Select Timming"/>
                                     <span class="text-danger"><b>{{ $errors->first('timming') }}</b></span>
                                 </div>
                                 <div class="form-group">
@@ -58,10 +76,40 @@
                                     <label><strong>Hospital <span class="text-danger">*</span></strong></label>
                                     <select class="form-control" name="hospital_id" >
                                         @foreach( $hospitals as $hospital )
-                                            <option value="{{ $hospital->id }}">{{ $hospital->name }}</option>
+                                            <option value="{{ $hospital->id }}"
+                                            @if( isset($doctor) && $doctor->hospital_id == $hospital->id )
+                                                selected
+                                            @endif
+                                            >{{ $hospital->name }}</option>
                                         @endforeach
                                     </select>
                                     <span class="text-danger"><b>{{ $errors->first('hospital_id') }}</b></span>
+                                </div>
+
+                                <div class="form-group">
+                                    <label><strong>Education <span class="text-danger">*</span></strong></label>
+                                    <input type="text" class="form-control" name="education" value="{{ isset($doctor->education) ? $doctor->education : old('education') }}" placeholder="Education">
+                                    <span class="text-danger"><b>{{ $errors->first('education') }}</b></span>
+                                </div>
+                                <div class="form-group">
+                                    @php
+                                        $w = array();
+                                        if(isset($doctor)) {
+                                            $wor_days = $doctor->working_days;
+                                            $w = explode(",", $wor_days);
+                                        }
+                                    @endphp
+                                    <label><strong>Working Days <span class="text-danger">*</span></strong></label>
+                                    <select class="form-control select2 working_days" name="working_days[]" multiple>
+                                        @foreach( $working_days as $i => $wd )
+                                            <option value="{{ $i }}"
+                                            @if( in_array($i, $w) )
+                                                selected
+                                            @endif
+                                            >{{ $wd }}</option>
+                                        @endforeach
+                                    </select>
+                                    <span class="text-danger"><b>{{ $errors->first('working_days') }}</b></span>
                                 </div>
 
                                 <div class="form-group">
@@ -131,16 +179,27 @@
 @section('scripts')
 <script>
   jQuery(document).ready(function() {
-      jQuery("input.daterange").daterangepicker({
+    $('input.daterange').daterangepicker({
+        opens: 'left',
         timePicker: true,
-        timePickerIncrement: 30,
+        timePicker24Hour: true,
+        timePickerIncrement: 1,
+        timePickerSeconds: false,
         locale: {
-            format: 'MM/DD/YYYY hh:mm A'
+            format: 'HH:mm'
         }
-      });
-      jQuery("select.facilities_services").select2({
-          placeholder: "Select Services"
-      });
+    }).on('show.daterangepicker', function (ev, picker) {
+        picker.container.find(".calendar-table").hide();
+    });
+    jQuery("select.facilities_services").select2({
+        placeholder: "Select Services"
+    });
+    jQuery("select.working_days").select2({
+        placeholder: "Select Working Days"
+    });
+    jQuery("select.city").select2({
+        placeholder: "Select City"
+    });
   });
 </script>
 @endsection

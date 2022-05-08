@@ -19,6 +19,10 @@ class CreateDoctorsTable extends Migration
             $table->string('picture')->nullable();
             $table->string('name');
             $table->string('slug');
+            $table->string('expirience');
+            $table->string('education');
+            $table->string('city');
+            $table->string('working_days');
             $table->string('timming');
             $table->string('services');
             $table->string('bio')->nullable();

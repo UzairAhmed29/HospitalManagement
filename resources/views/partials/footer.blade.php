@@ -39,7 +39,9 @@
              </div>
              <div class="col-lg-3 col-sm-6">
                 <h2 class="useful_text">countrys</h2>
-                <div class="map_image"><img src="images/map-bg.png"></div>
+                <div class="map_image">
+                    {{-- <img src="images/map-bg.png"> --}}
+                </div>
              </div>
           </div>
        </div>
@@ -67,7 +69,7 @@
  <script src="{{ asset('/js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
  <!-- <script src="{{ asset('/js/custom.js') }}"></script> -->
  <!-- javascript -->
- <script src="{{ asset('/js/owl.carousel.js') }}"></script>
+ {{-- <script src="{{ asset('/js/owl.carousel.js') }}"></script> --}}
  <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
  <script>
     $(document).ready(function(){
@@ -93,5 +95,6 @@
     document.getElementById("myNav").style.width = "0%";
     }
  </script>
+ @yield('scripts')
 </body>
 </html>

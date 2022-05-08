@@ -15,10 +15,12 @@
                 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                 <div class="overlay-content">
                     <a href="{{ route('index') }}">Home</a>
-                    <a href="protect.html">Protect</a>
-                    <a href="about.html">About</a>
-                    <a href="doctors.html">Doctors</a>
-                    <a href="news.html">News</a>
+                    <a href="{{ route('hospitals') }}">Hospitals</a>
+                    <a href="{{ route('vaccines') }}">Vaccines</a>
+                    <a href="{{ route('doctors') }}">Doctors</a>
+                    @if(!Auth::guest())
+                        <a href="{{ route('dashboard') }}">Account</a>
+                    @endif
                 </div>
             </div>
             <span class="navbar-toggler-icon"></span>

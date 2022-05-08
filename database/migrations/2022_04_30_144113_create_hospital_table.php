@@ -24,6 +24,8 @@ class CreateHospitalTable extends Migration
             $table->string('picture')->nullable();
             $table->string('consultation_fee')->nullable();
             $table->string('facilities_services');
+            $table->string('no_of_vents');
+            $table->string('no_of_beds');
             $table->string('active_cases');
             $table->string('deaths');
             $table->string('recovered_patients');

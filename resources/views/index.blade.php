@@ -26,6 +26,32 @@
         width: 80%;
         margin: 40px auto;
     }
+    .hospital-register {
+        background: white;
+        padding: 10px 26px;
+        margin-bottom: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+        width: 80%;
+        margin: 0 auto;
+    }
+    .hospital-register p {
+        font-size: 16px;
+        font-family: 'Poppins';
+        font-weight: 400;
+    }
+    .hospital-register a {
+        background-color: #a258ed;
+        color: white;
+        padding: 10px;
+    }
+    .hospital-register a:hover {
+        border: 1px solid #a258ed;
+        color: #a258ed;
+        background: white;
+    }
 </style>
       <!--header section start -->
       <div class="header_section">
@@ -81,6 +107,11 @@
                     @endforeach
                 </tbody>
             </table>
+        </div>
+
+        <div class="hospital-register">
+            <p>Register as a Hospital Vendor</p>
+            <a href="{{ route('vendor_register_view') }}">Register Now</a>
         </div>
 
       <div class="protect_section layout_padding">

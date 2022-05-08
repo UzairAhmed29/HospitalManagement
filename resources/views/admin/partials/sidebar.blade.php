@@ -141,7 +141,30 @@
                 </li>
                 @endif
             @endif
-
+            <li class="nav-item {{ (request()->is('dashboard/order')) ? 'menu-is-opening menu-open' : '' }}">
+                <a href="#" class="nav-link"><i class="nav-icon fas fa-receipt"></i>
+                    <p> Orders</p>
+                </a>
+                <ul class="nav nav-treeview" style="{{ request()->is('dashboard/order') || request()->is('dashboard/order/show/*') ? 'display: block' : 'display: none' }}">
+                    <li class="nav-item">
+                        <a href="{{ route('order.index') }}" class="nav-link">
+                            <i class="fas fa-angle-right"></i>&nbsp;<p>{{ (auth()->user()->role == 'admin') ? "All Orders" : "My Orders" }}</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li class="nav-item {{ (request()->is('dashboard/appointments')) ? 'menu-is-opening menu-open' : '' }}">
+                <a href="#" class="nav-link"><i class="nav-icon fas fa-calendar-alt"></i>
+                    <p> Appointments</p>
+                </a>
+                <ul class="nav nav-treeview" style="{{ request()->is('dashboard/appointments') || request()->is('dashboard/appointments/show/*') ? 'display: block' : 'display: none' }}">
+                    <li class="nav-item">
+                        <a href="{{ route('appointments.index') }}" class="nav-link">
+                            <i class="fas fa-angle-right"></i>&nbsp;<p>{{ (auth()->user()->role == 'admin') ? "All Appointments" : "My Appointments" }}</p>
+                        </a>
+                    </li>
+                </ul>
+            </li>
             @if(auth()->user() != null && (auth()->user()->role == 'vendor' || auth()->user()->role == 'customer'))
                 <li class="nav-item {{ (request()->is('dashboard/profile')) ? 'menu-is-opening menu-open' : '' }}">
                     <a href="{{ route('vendor_profile_view') }}" class="nav-link"><i class="nav-icon fas fa-user"></i>
