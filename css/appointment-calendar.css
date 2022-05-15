@@ -1,0 +1,394 @@
+/* detail page css */
+
+section.hospital-section {
+    background-image: url( '../images/doctor-appointment.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 20% 0px;
+}
+section.hospital-content, .my-section  {
+    padding: 0px 0;
+    width: 80%;
+    margin: 50px auto;
+}
+
+.card-wrapper{
+margin: 0 auto;
+}
+.product-content{
+padding: 2rem 1rem;
+}
+.product-title{
+font-size: 3rem;
+text-transform: capitalize;
+font-weight: 700;
+position: relative;
+color: #12263a;
+margin: 1rem 0;
+}
+.product-title::after{
+content: "";
+position: absolute;
+left: 0;
+bottom: 0;
+height: 4px;
+width: 80px;
+background: #12263a;
+}
+.product-link{
+text-decoration: none;
+text-transform: uppercase;
+font-weight: 400;
+font-size: 0.9rem;
+display: inline-block;
+margin-bottom: 0.5rem;
+background: #256eff;
+color: #fff;
+padding: 0 0.3rem;
+transition: all 0.5s ease;
+}
+.product-link:hover{
+opacity: 0.9;
+}
+.product-price{
+margin: 1rem 0;
+font-size: 1rem;
+font-weight: 700;
+}
+.product-price span{
+font-weight: 400;
+}
+.new-price span{
+color: #256eff;
+}
+.product-detail h2{
+text-transform: capitalize;
+color: #12263a;
+padding-bottom: 0.6rem;
+}
+.product-detail p{
+font-size: 0.9rem;
+padding: 0.3rem;
+opacity: 0.8;
+}
+.product-detail ul{
+margin: 1rem 0;
+font-size: 0.9rem;
+}
+.product-detail ul li{
+margin: 0;
+list-style: none;
+background: url(https://fadzrinmadu.github.io/hosted-assets/product-detail-page-design-with-image-slider-html-css-and-javascript/checked.png) left center no-repeat;
+background-size: 18px;
+padding-left: 1.7rem;
+margin: 0.4rem 0;
+font-weight: 600;
+opacity: 0.9;
+}
+.product-detail ul li span{
+font-weight: 400;
+}
+.purchase-info{
+margin: 1.5rem 0;
+}
+.purchase-info input,
+.purchase-info .btn{
+border: 1.5px solid #ddd;
+border-radius: 25px;
+text-align: center;
+padding: 0.45rem 0.8rem;
+outline: 0;
+margin-right: 0.2rem;
+margin-bottom: 1rem;
+}
+.purchase-info input{
+width: 60px;
+}
+.purchase-info .btn{
+cursor: pointer;
+color: #fff;
+}
+.purchase-info .btn:first-of-type{
+background: #a258ed;
+}
+.purchase-info .btn:hover{
+opacity: 0.9;
+}
+.margin-non {
+margin: 0 !important;
+}
+button.btn a {
+color: white;
+}
+@media screen and (min-width: 992px){
+.card{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1.5rem;
+}
+.card-wrapper{
+    display: flex;
+    align-items: center;
+}
+.product-imgs{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 620px;
+}
+.product-content{
+    padding-top: 0;
+}
+}
+.specialist {
+background: #dbd9d9;
+padding: 3px 7px;
+color: black;
+border-radius: 50px;
+margin-left: 3px;
+}
+
+
+/* appointment calendar css */
+.actions {
+    margin-left: 20px;
+}
+
+i.fa.fa-chevron-left, i.fa.fa-chevron-right {
+    background: #a258ed;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+}
+input.cal-datepicker {
+    background: white;
+    padding: 2px 9px !important;
+    border-radius: 51px;
+    border: none;
+    height: 32px;
+    width: 180px;
+    font-size: 14px;
+}
+#current .block p.active-p {
+    background: #a258ed;
+    width: 42px;
+    margin: 0 auto;
+    margin-bottom: 0.45rem;
+    color: white;
+    border-radius: 20px;
+    font-weight: 500;
+    box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+    height: 40px;
+    line-height: 31px!important;
+    padding: 5px 6px;
+    margin-top: 5px;
+}
+.active-p {
+    width: 42px;
+    margin: 0 auto;
+    margin-bottom: 0.45rem;
+    border-radius: 20px;
+    font-weight: 500;
+    height: 40px;
+    line-height: 31px!important;
+    padding: 5px 6px;
+    margin-top: 5px;
+}
+.calendar {
+    width: 81%;
+    margin: 0 auto !important;
+    border: 1px solid #cccccc8c;
+    box-shadow: 0px 0px 30px 0px #ccc;
+    margin-bottom: 0;
+    background-color: white;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    height: auto;
+    margin-top: 40px;
+}
+.cal-header {
+    justify-content: space-between;
+    background: #a258ed;
+    color: white;
+    font-weight: bolder;
+    font-size: 18px;
+    padding: 5px 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    align-items: center;
+}
+.calendar .cal-blocks {
+    cursor: grab;
+    justify-content: unset!important;
+
+}
+.cal-blocks {
+    overflow: hidden;
+    display: flex;
+    margin-top: 8px;
+    justify-content: space-between;
+}
+.calendar .cal-blocks .slot_items {
+    /* width: 159PX!important; */
+    /* max-width: 159PX!important; */
+}
+
+.slot_items {
+    /* border-top: 1px solid #efefee; */
+    margin-left: 5px;
+}
+.block {
+    text-align: center;
+    border: 1px solid #d3c4c4;
+    width: 140px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+p.slot {
+    border: 1px solid #a258ed;
+    padding: 4px;
+    border-radius: 50px;
+    margin: 15px 8px !important;
+    box-shadow: rgb(0 0 0 / 16%) 0px 1px 4px;
+    cursor: pointer;
+}
+.slot_items.disabled .content-block p.slot {
+    cursor: not-allowed;
+}
+p.day {
+    margin: 10px 0 0 0;
+    font-weight: 600;
+    font-size: 18px;
+}
+i.fa.fa-clock-o {
+    color: #a258ed;
+    font-size: 18px;
+    margin-right: 10px;
+}
+
+i.fa.fa-chevron-right {
+    margin-left: 15px !important;
+}
+
+.slot_items.disabled {
+    background: #a258ed59;
+    box-shadow: rgb(162 88 237 / 25%) 0px 30px 60px -12px inset, rgb(162 88 237 / 55%) 0px 18px 36px -18px inset;
+}
+div#modal-popup {
+    width: 0px;
+    height: 0px;
+    opacity: 1;
+    transition: opacity 1s ease 0s;
+}
+
+[data-ml-modal] {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    overflow-x: hidden;
+    overflow-y: none;
+    z-index: 999;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
+}
+[data-ml-modal] .modal-dialog {
+    border-radius: 18px;
+    box-shadow: 0 11px 15px -7px rgb(0 0 0 / 20%), 0 24px 38px 3px rgb(0 0 0 / 14%), 0 9px 46px 8px rgb(0 0 0 / 12%);
+    position: relative;
+    width: 90%;
+    max-width: 450px;
+    max-height: 75%;
+    margin: 10% auto!important;
+    overflow-x: none;
+    overflow-y: none;
+    z-index: 2;
+    pointer-events: all;
+}
+.modal-header {
+    background: #a258ed;
+    color: white;
+    display: flex;
+    align-items: center;
+    height: 50px;
+    justify-content: space-between;
+    padding: 1rem;
+    border: none !important;
+
+}
+.header-slot_name {
+    margin: 0 !important;
+    font-size: 20px;
+}
+
+.modal--close {
+    font-size: 1.5rem;
+}
+.modal-header .modal--close {
+    padding: 1rem;
+    margin: -1rem -1rem -1rem auto;
+}
+.slot_submission p {
+    font-size: 16px;
+}
+
+.form--group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+.form--group label {
+    margin: 0;
+}
+
+button#slot_submit {
+    color: white;
+    background: #a258ed;
+    padding: 4px 10px;
+    margin: 10px 0px;
+    font-size: 18px;
+    border-radius: 10px;
+}
+.app-form {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.form--group p {
+    margin: 4px 0;
+}
+
+.form--group input {
+    width: 70%;
+    height: 40px;
+    padding: 12px;
+    border: 1px solid #a258ed;
+    border-radius: 4px;
+}
+
+.modal-header a {
+    color: white;
+    font-size: 18px;
+}
+p.slot_fee {
+    border-bottom: 1px solid #8080802e;
+}
+a#booked p {
+    background: #9b999961;
+    color: black;
+    cursor: not-allowed;
+}
+.main-detail {
+    display: flex;
+}
+
+@media only screen and (max-width: 600px) {
+
+    .main-detail {flex-direction: column;}
+
+    .calendar {width: 100%; margin: 0!important;}
+
+}

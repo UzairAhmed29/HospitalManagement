@@ -25,7 +25,7 @@ class DoctorsController extends Controller
         if( auth()->user()->role == 'vendor' ) {
             $user_id = auth()->user()->id;
             $hospital = Hospital::where('user_id', $user_id)->first();
-            $doctors = Doctors::where('hospital_id', $hospital->id)->with('hospital')->simplePaginate(20);
+            $doctors = Doctors::where('hospital_id', @$hospital->id)->with('hospital')->simplePaginate(20);
         } else {
             $doctors = Doctors::with('hospital')->simplePaginate(20);
         }
@@ -41,7 +41,7 @@ class DoctorsController extends Controller
     {
         $title = "Add Doctor";
         $services = Services::all();
-        $cities = $this->cities();
+        $cities = self::cities();
         $working_days = $this->working_days();
         if( auth()->user()->role == 'vendor' ) {
             $user_id = auth()->user()->id;
@@ -115,7 +115,7 @@ class DoctorsController extends Controller
     {
         $title = "Edit Doctor";
         $services = Services::all();
-        $cities = $this->cities();
+        $cities = self::cities();
         $working_days = $this->working_days();
         $hospitals = Hospital::where('status', 'Activated')->get();
         return view('admin.doctors.add', compact('title', 'services', 'hospitals', 'doctor', 'cities', 'working_days'));
@@ -207,7 +207,7 @@ class DoctorsController extends Controller
         return $array;
     }
 
-    public function cities() {
+    public static function cities() {
         $array = array (
             0 => 'Islamabad',
             1 => 'Ahmed Nager',

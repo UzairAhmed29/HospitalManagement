@@ -53,7 +53,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label><strong>Timmings <span class="text-danger">*</span></strong></label>
-                                    <input type="text" class="form-control daterange" name="timming" value="{{ isset($doctor->name) ? $doctor->name : old('name') }}" placeholder="Select Timming"/>
+                                    <input type="text" class="form-control daterange" name="timming" value="{{ isset($doctor->timming) ? $doctor->timming : old('timming') }}" placeholder="Select Timming"/>
                                     <span class="text-danger"><b>{{ $errors->first('timming') }}</b></span>
                                 </div>
                                 <div class="form-group">
@@ -77,7 +77,7 @@
                                     <select class="form-control" name="hospital_id" >
                                         @foreach( $hospitals as $hospital )
                                             <option value="{{ $hospital->id }}"
-                                            @if( $doctor->hospital_id == $hospital->id )
+                                            @if( isset($doctor) && $doctor->hospital_id == $hospital->id )
                                                 selected
                                             @endif
                                             >{{ $hospital->name }}</option>
@@ -179,22 +179,27 @@
 @section('scripts')
 <script>
   jQuery(document).ready(function() {
-      jQuery("input.daterange").daterangepicker({
+    $('input.daterange').daterangepicker({
+        opens: 'left',
         timePicker: true,
-        timePickerIncrement: 30,
+        timePicker24Hour: true,
+        timePickerIncrement: 1,
+        timePickerSeconds: false,
         locale: {
-            format: 'MM/DD/YYYY hh:mm A'
+            format: 'HH:mm'
         }
-      });
-      jQuery("select.facilities_services").select2({
-          placeholder: "Select Services"
-      });
-      jQuery("select.working_days").select2({
-          placeholder: "Select Working Days"
-      });
-      jQuery("select.city").select2({
-          placeholder: "Select City"
-      });
+    }).on('show.daterangepicker', function (ev, picker) {
+        picker.container.find(".calendar-table").hide();
+    });
+    jQuery("select.facilities_services").select2({
+        placeholder: "Select Services"
+    });
+    jQuery("select.working_days").select2({
+        placeholder: "Select Working Days"
+    });
+    jQuery("select.city").select2({
+        placeholder: "Select City"
+    });
   });
 </script>
 @endsection

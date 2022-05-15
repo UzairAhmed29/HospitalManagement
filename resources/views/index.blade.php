@@ -52,6 +52,19 @@
         color: #a258ed;
         background: white;
     }
+    @media only screen and (max-width: 600px) {
+        .cases {
+            flex-direction: column;
+        }
+        .hospital-register a {
+            font-size: 12px;
+            padding: 1px 13px !important;
+            text-align: center;
+        }
+        .footer_section.layout_padding {
+            text-align: center;
+        }
+    }
 </style>
       <!--header section start -->
       <div class="header_section">

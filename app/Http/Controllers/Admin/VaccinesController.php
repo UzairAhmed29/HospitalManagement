@@ -19,11 +19,12 @@ class VaccinesController extends Controller
      */
     public function index()
     {
+
         $title = "Vaccines";
         if( auth()->user()->role == 'vendor' ) {
             $user_id = auth()->user()->id;
             $hospital = Hospital::where('user_id', $user_id)->first();
-            $vaccines = Vaccine::where('hospital_id', $hospital->id)->with('hospital')->simplePaginate(20);
+            $vaccines = Vaccine::where('hospital_id', @$hospital->id)->with('hospital')->simplePaginate(20);
         } else {
             $vaccines = Vaccine::with('hospital')->simplePaginate(20);
         }

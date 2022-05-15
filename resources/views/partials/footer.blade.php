@@ -2,7 +2,7 @@
     <div class="container">
        <div class="footer_section_2">
           <div class="row">
-             <div class="col-lg-3 col-sm-6">
+             <div class="col-lg-4 col-sm-6">
                 <h2 class="useful_text">Resources</h2>
                 <div class="footer_menu">
                    <ul>
@@ -14,11 +14,11 @@
                    </ul>
                 </div>
              </div>
-             <div class="col-lg-3 col-sm-6">
+             <div class="col-lg-4 col-sm-6">
                 <h2 class="useful_text">About</h2>
                 <p class="footer_text">Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various</p>
              </div>
-             <div class="col-lg-3 col-sm-6">
+             <div class="col-lg-4 col-sm-6">
                 <h2 class="useful_text">Contact Us</h2>
                 <div class="location_text">
                    <ul>
@@ -37,10 +37,6 @@
                    </ul>
                 </div>
              </div>
-             <div class="col-lg-3 col-sm-6">
-                <h2 class="useful_text">countrys</h2>
-                <div class="map_image"><img src="images/map-bg.png"></div>
-             </div>
           </div>
        </div>
     </div>
@@ -56,6 +52,15 @@
        </div>
     </div>
  </div>
+ <style>
+
+@media only screen and (max-width: 600px) {
+       .footer_section.layout_padding {
+           text-align: center !important;
+       }
+    }
+
+</style>
  <!-- copyright section end -->
  <!-- Javascript files-->
  <script src="{{ asset('/js/jquery.min.js') }}"></script>
@@ -67,7 +72,7 @@
  <script src="{{ asset('/js/jquery.mCustomScrollbar.concat.min.js') }}"></script>
  <!-- <script src="{{ asset('/js/custom.js') }}"></script> -->
  <!-- javascript -->
- <script src="{{ asset('/js/owl.carousel.js') }}"></script>
+ {{-- <script src="{{ asset('/js/owl.carousel.js') }}"></script> --}}
  <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
  <script>
     $(document).ready(function(){

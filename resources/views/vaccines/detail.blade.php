@@ -129,15 +129,14 @@ button.btn a {
         grid-gap: 1.5rem;
     }
     .card-wrapper{
-        height: 100vh;
         display: flex;
-        justify-content: center;
         align-items: center;
     }
     .product-imgs{
         display: flex;
         flex-direction: column;
         justify-content: center;
+        width: 620px;
     }
     .product-content{
         padding-top: 0;

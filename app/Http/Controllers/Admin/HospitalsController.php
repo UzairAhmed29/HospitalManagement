@@ -136,7 +136,6 @@ class HospitalsController extends Controller
             // Redirecting if the image is not exist in directory
             $FileName = $hospital->picture;
         }
-
         $hospital->update([
             'name' => $request->name,
             'slug' => str_slug($request->name),
@@ -203,7 +202,6 @@ class HospitalsController extends Controller
 
     public function vendor_hospital_create(VendorHospitalRequest $request) {
         $key = uniqid();
-
         // Brand File Upload configurartion
         $File = $request->file('picture');
         if ($File) {
@@ -214,13 +212,16 @@ class HospitalsController extends Controller
         } else {
             $FileName = $request->picture;
         }
-        $user = Hospital::create([
+
+        $hospital = Hospital::create([
             'name' => $request->name,
             'slug' => str_slug($request->name),
             'address' => $request->address,
             'phone' => $request->phone,
             'status' => 'Deactivated',
             'deaths' => $request->deaths,
+            'no_of_beds' => $request->no_of_beds,
+            'no_of_vents' => $request->no_of_vents,
             'consultation_fee' => $request->consultation_fee,
             'user_id' => $request->user_id,
             'facilities_services' => implode(",", $request->facilities_services),

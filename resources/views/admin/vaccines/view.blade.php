@@ -48,7 +48,7 @@
                                             @forelse($vaccines as $key => $vaccine)
                                                 <tr>
                                                     <td rowspan="1" colspan="1">{{ $vaccine->name }}</td>
-                                                    <td rowspan="1" acolspan="1">{{ $vaccine->hospital->name }}</td>
+                                                    <td rowspan="1" acolspan="1">{{ @$vaccine->hospital->name }}</td>
                                                     <td rowspan="1" colspan="1">{{ $vaccine->price }}</td>
                                                     <td rowspan="1" colspan="1">{{ $vaccine->doses }}</td>
                                                     <td rowspan="1" colspan="1">{{ $vaccine->effective }}</td>

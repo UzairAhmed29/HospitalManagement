@@ -45,8 +45,9 @@ section.hospital-section {
         border: none !important;
     }
     img.card-img-top {
-        min-height: 200px !important;
+        min-height: 280px !important;
     }
+
 </style>
 <section class="hospital-section"></section>
 <section class="hospital-content">

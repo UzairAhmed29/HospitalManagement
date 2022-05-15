@@ -16,14 +16,17 @@ use Illuminate\Support\Facades\Route;
 // Front end routes
 Route::group(array('namespace' => '\App\Http\Controllers'), function() {
     Route::get('/', 'FrontEndController@index')->name('index');
-    Route::get('/hospitals', 'FrontEndController@hospitals')->name('hospitals');
+    Route::get('/hospitals/', 'FrontEndController@hospitals')->name('hospitals');
     Route::get('/hospital/{slug}/', 'FrontEndController@hospitalsDetail')->name('hospital_details');
 
     Route::get('/doctors/', 'FrontEndController@doctorsView')->name('doctors');
+    Route::get('/doctor/', 'FrontEndController@doctorsView')->name('filter_doctor');
     Route::get('/doctor/{slug}/', 'FrontEndController@DoctorsDetail')->name('doctor_details');
+    Route::get('/doctor/{slug}/appointment', 'FrontEndController@doctorsAppointmentView')->name('doctor_app_view');
+    Route::post('/doctor/appointment', 'FrontEndController@doctorsAppointmentPost')->name('doctor_app');
 
-    Route::get('/vaccines', 'FrontEndController@vaccines')->name('vaccines');
-    Route::get('/vaccines/{slug}', 'FrontEndController@vaccine_detail')->name('vaccine_detail');
+    Route::get('/vaccines/', 'FrontEndController@vaccines')->name('vaccines');
+    Route::get('/vaccines/{slug}/', 'FrontEndController@vaccine_detail')->name('vaccine_detail');
 
     Route::get('/vendor-register', 'FrontEndController@vendorRegisterView')->name('vendor_register_view');
     Route::post('/vendor-register', 'FrontEndController@vendorRegister')->name('vendor_register');
@@ -63,6 +66,10 @@ Route::group(array('namespace' => '\App\Http\Controllers\Admin', 'prefix' => '/d
 
     });
     Route::resource('/order', 'OrdersController');
+
+    Route::resource('/appointments', 'AppointmentsController');
+    Route::put('/appointments/status/{appointment}', 'AppointmentsController@appStatusUpdate')->name('update_app_status');
+
     // customer role route outside middleware group
     Route::get('/profile', 'UserController@vendorProfile')->name('vendor_profile_view');
 });

@@ -128,6 +128,36 @@ section.hospital-section {
     .hospital-doctors {
         margin-bottom: 30px;
     }
+    p.specialist {
+        width: 260px;
+    }
+    @media only screen and (max-width: 600px) {
+        .hospital-detail {width: 65%;}
+
+        .row-col {align-items: center;}
+
+        .hospital-loc-phone p {margin: 10px 0 20px 0 !important;}
+
+        a.call-now {padding: 10px 24px !important;}
+
+        a.get-dir {padding: 10px 8px !important;}
+
+        li.item { margin-right: 14px;}
+
+        div#general-info {text-align: center;}
+
+        div#hospital_doctors {flex-direction: column;}
+
+        img.avatar-circle {height: 65px;}
+
+        .call-to-actions {text-align: center;}
+
+        p.specialist {width: 100%;}
+
+        div#facilities {margin-top: 20px;text-align: center;}
+
+        #facilities p.specialist {width: 100%;}
+    }
 </style>
 <section class="hospital-section"></section>
 <section class="hospital-content">
@@ -219,7 +249,7 @@ section.hospital-section {
                 </div>
 
                     <div class="call-to-actions">
-                        <p><a class="cta-btn" href="">Book Appointment</a></p>
+                        <p><a class="cta-btn" href="{{ route('doctor_app_view', $doctor->slug) }}">Book Appointment</a></p>
                         <p><a class="cta-btn" style="padding: 10px 57px;" href="{{ route('doctor_details', $doctor->slug) }}">View Profile</a></p>
                     </div>
                 </div>

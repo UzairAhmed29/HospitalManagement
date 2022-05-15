@@ -240,7 +240,27 @@ header {
 	line-height: 40px;
 	color: #000;
 }
+fieldset.bank-details p {
+    margin: 0 !important;
+    margin-left: 40px !important;
+    color: grey;
+    font-size: 14px;
+}
+@media only screen and (max-width: 600px) {
+    section.checkout-content header {height: 140px;}
 
+    .checkout-content .wrapper {width: 80%;margin: 0 auto;}
+
+    i.fa.fa-info {padding: 0 10px;}
+
+    .info-bar p {font-size: 14px;}
+
+    .col-7.col {width: 100%;}
+
+    .col-7.col {max-width: 100%;}
+
+    .col-5.col.order {max-width: 100%;}
+}
 </style>
 <section class="checkout-content">
 
@@ -344,14 +364,20 @@ header {
                         <p class="padleft">
                             Make your payment directly into our bank account. Please use your Order ID as the payment reference. Your order won't be shipped until the funds have cleared in our account.
                         </p>
+                        <fieldset class="bank-details">
+                            <p>Bank: Standard Chartered Pakistan</p>
+                            <p>Bank Account Number: 85588786</p>
+                            <p>Routing Number: 21085949</p>
+                            <p>IBAN: PK70358555672043330195249696</p>
+                        </fieldset>
                     </div>
                     <div>
                         <input type="radio" value="cod" name="payment"><p>Cash on Delivery</p>
                     </div>
                     <hr>
-                    <div>
-                        <input type="radio" value="paypal" name="payment"><p>Paypal</p>
-                    </div>
+                    {{-- <div>
+                        <input type="radio" value="stripe" name="payment"><p>Stripe</p>
+                    </div> --}}
                     <input type="submit" name="submit" class="redbutton" value="Place Order">
                 </div>
             </form>

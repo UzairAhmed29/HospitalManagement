@@ -16,10 +16,10 @@
 @import url(animate.min.css);
 @import url(normalize.css);
 @import url(icomoon.css);
-@import url(css/font-awesome.min.css);
+@import url(/font-awesome.min.css);
 @import url(meanmenu.css);
 @import url(owl.carousel.min.css);
-@import url(swiper.min.css);
+@import url(https://unpkg.com/swiper@8/swiper-bundle.min.css);
 @import url(slick.css);
 @import url(jquery.fancybox.min.css);
 @import url(jquery-ui.css);
@@ -407,7 +407,7 @@ menu_text {
 
 }
 
-#my_slider .carousel-control-prev, 
+#my_slider .carousel-control-prev,
 #my_slider .carousel-control-next {
     width: 55px;
     height: 55px;
@@ -728,7 +728,7 @@ menu_text {
 
 .news_text {
     width: 60%;
-    margin: 0 auto; 
+    margin: 0 auto;
     font-size: 16px;
     color: #151515;
     text-align: center;
@@ -736,7 +736,7 @@ menu_text {
 
 .news_section_2 {
     width: 100%;
-    float: left;   
+    float: left;
 }
 
 .box_main {
@@ -817,7 +817,7 @@ menu_text {
     color: #ffffff;
 }
 
-#main_slider .carousel-control-prev, 
+#main_slider .carousel-control-prev,
 #main_slider .carousel-control-next {
     width: 55px;
     height: 55px;

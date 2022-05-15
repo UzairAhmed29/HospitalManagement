@@ -68,7 +68,11 @@ section.hospital-section {
         flex-wrap: wrap;
         justify-content: space-between;
     }
+    @media only screen and (max-width: 600px) {
+        .card-body {flex-direction: column;}
 
+        .item {width: 100%;}
+    }
 </style>
 <section class="hospital-section"></section>
 <section class="hospital-content">

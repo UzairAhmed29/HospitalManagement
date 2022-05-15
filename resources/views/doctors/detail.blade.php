@@ -41,6 +41,7 @@
     }
     .book-hospital-app p {
         margin: 10px 20px;
+        width: 370px;
     }
     .app-box-header {
         background: #a258ed;
@@ -53,6 +54,7 @@
         border: 1px solid #d7d1d1;
         border-radius: 3px;
         box-shadow: rgb(0 0 0 / 16%) 0px 1px 4px;
+        height: 370px;
     }
     .book-app-btn {
         background-color: #a258ed;
@@ -67,6 +69,22 @@
     }
     .meta-detail p {
         margin: 10px 0px !important;
+    }
+    @media only screen and (max-width: 600px) {
+        .content {flex-direction: column;}
+
+        .detail {flex-direction: column;}
+
+        .detail div {text-align: center;}
+
+        .book-app {margin-top: 20px;}
+
+        p.app-box-header {padding: 10px 40px;}
+
+        .book-hospital-app p {width: 90%;}
+
+        .meta-detail p:last-child {width: 100% !important;}
+
     }
 </style>
 <section class="doctor-main">
@@ -90,7 +108,6 @@
                     @endphp
                     @foreach($spec as $s)
                     @php
-
                         $j = \App\Models\Services::find($s);
                     @endphp
                         <span>{{ @$j->name }}</span>
@@ -132,7 +149,6 @@
             @endphp
             @foreach($spec as $s)
             @php
-
                 $j = \App\Models\Services::find($s);
             @endphp
                 <span class="service">{{ @$j->name }}</span>

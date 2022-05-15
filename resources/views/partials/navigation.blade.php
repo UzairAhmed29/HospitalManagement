@@ -43,13 +43,20 @@
 
     @media screen and (max-width: 500px) {
         .header a {
-            float: none;
             display: block;
-            text-align: left;
         }
-
+        .header a img {
+            margin-left: 150px;
+        }
         .header-right {
             float: none;
+            width: 50% !important;
+            margin: 0 auto;
+        }
+        .hospital-register a {
+            text-align: center;
+            padding: 6px 8px;
+            line-height: 20px;
         }
         a.main-logo {
             margin-bottom: 20px;
@@ -62,6 +69,16 @@
         }
         a.main-logo {
             text-align: center;
+        }
+    }
+    @media only screen and (max-width: 600px) {
+        .header-right {
+            width: 100%;
+        }
+        .header-right a {
+            font-size: 15px;
+            margin: 0 5px;
+            padding: 0;
         }
     }
 </style>

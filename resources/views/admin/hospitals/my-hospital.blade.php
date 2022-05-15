@@ -1,7 +1,5 @@
 @extends('admin/layouts.app')
-
 @section('content')
-
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
@@ -20,9 +18,9 @@
     <section class="content">
         <div class="container-fluid">
             <div class="card card-default">
-                <form action="{{ ($hospital) ? route('vendor_hospital_update') : route('vendor_hospital_create') }}" method="POST" name="VendorHospitalUpdate" enctype="multipart/form-data">
+                <form action="{{ isset($hospital) ? route('vendor_hospital_update') : route('vendor_hospital_create') }}" method="POST" name="VendorHospitalUpdate" enctype="multipart/form-data">
                     @csrf
-                    @isset ($hospital)
+                    @isset($hospital)
                         @method('PUT')
                     @endisset
                     <div class="card-body">
@@ -42,6 +40,11 @@
                                     <label><strong>Phone <span class="text-danger">*</span></strong></label>
                                     <input type="text" class="form-control" name="phone" value="{{ isset($hospital->phone) ? $hospital->phone : old('address') }}" placeholder="Phone">
                                     <span class="text-danger"><b>{{ $errors->first('phone') }}</b></span>
+                                </div>
+                                <div class="form-group">
+                                    <label><strong>No. of Beds <span class="text-danger">*</span></strong></label>
+                                    <input type="text" class="form-control" name="no_of_beds" value="{{ isset($hospital->no_of_beds) ? $hospital->no_of_beds : old('no_of_beds') }}" placeholder="No. of Beds">
+                                    <span class="text-danger"><b>{{ $errors->first('no_of_beds') }}</b></span>
                                 </div>
                                 <div class="form-group">
                                     <label><strong>Total Corona Deaths <span class="text-danger">*</span></strong></label>
@@ -81,6 +84,11 @@
                                     <input type="text" class="form-control" name="total_doctors" value="{{ isset($hospital->total_doctors) ? $hospital->total_doctors : old('address') }}" placeholder="Total No. Of Doctors">
                                     <span class="text-danger"><b>{{ $errors->first('total_doctors') }}</b></span>
                                 </div>
+                                <div class="form-group">
+                                    <label><strong>No. of Ventilators <span class="text-danger">*</span></strong></label>
+                                    <input type="text" class="form-control" name="no_of_vents" value="{{ isset($hospital->no_of_vents) ? $hospital->no_of_vents : old('no_of_vents') }}" placeholder="No. of Ventilators">
+                                    <span class="text-danger"><b>{{ $errors->first('no_of_vents') }}</b></span>
+                                </div>
 
                                 <div class="form-group">
                                     <label><strong>Active Corona Cases <span class="text-danger">*</span></strong></label>
@@ -107,10 +115,10 @@
                             <div class="col-lg-3 col-md-4 col-sm-12">
                                 <a href="{{ route('hospital.index') }}" class="btn btn btn-outline-danger">Cancel</a>
                                 <button type="submit" class="btn btn btn-outline-success">
-                                    @isset ($hospital)
+                                    @isset($hospital)
                                         Update
                                     @endisset
-                                    @empty ($hospital)
+                                    @empty($hospital)
                                         Create
                                     @endempty
                                 </button>

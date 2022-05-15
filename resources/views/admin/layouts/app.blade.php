@@ -48,11 +48,11 @@
   @include('admin/partials/sidebar')
 
   <!-- Content Wrapper. Contains page content -->
-    @if(Session::has('success'))
-        <div id="remove-noti" class="alert alert-success" role="alert" style="width: 81%; float: right; text-align: center; margin: 18px auto;">
+    {{-- @if(Session::has('success'))
+        <div id="remove-noti" class="alert alert-success" role="alert" style="width: 81%; float: right; text-align: center; margin: 18px auto;margin-top: 60px;">
             {{ Session::get('success') }}
         </div>
-    @endif
+    @endif --}}
   @yield('content')
   <!-- /.content-wrapper -->
   <footer class="main-footer">
